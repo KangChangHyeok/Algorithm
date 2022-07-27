@@ -19,8 +19,8 @@ func solution(_ s:String) -> String {
         toggle = true
         result += " "
     }
-    let realResult = result.trimmingCharacters(in: [" "])
-    return realResult
+    result.removeLast()
+    return result
 }
 
 solution("hello say SomeThinG")
