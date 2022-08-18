@@ -1,20 +1,22 @@
-import UIKit
-
 func solution(_ n:Int) -> Int {
-    var reslut = [Int]()
-    var count = 0
+    var count: Int = 0
+    var result: Int = 0
+    
     for i in 2...n {
-        for j in 1...i {
+        for j in 2...i {
             if i % j == 0 {
                 count += 1
+                if count > 2 {
+                    break
+                }
             }
         }
-        if count == 2{
-            reslut.append(i)
+        if count == 1 {
+            result += 1
         }
         count = 0
     }
-    return reslut.count
+    return result
 }
 
 solution(10)
