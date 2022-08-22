@@ -1,22 +1,15 @@
-func solution(_ n:Int) -> Int {
-    var count: Int = 0
-    var result: Int = 0
+func solution(_ n: Int) -> Int {
+    var count = 0
+    var array = Array.init(repeating: false, count: n+1)
     
     for i in 2...n {
-        for j in 2...i {
-            if i % j == 0 {
-                count += 1
-                if count > 2 {
-                    break
-                }
+        if array[i] == false {
+            count += 1
+            
+            for j in stride(from: i, through: n, by: i) {
+               array[j] = true
             }
         }
-        if count == 1 {
-            result += 1
-        }
-        count = 0
     }
-    return result
+    return count
 }
-
-solution(10)
